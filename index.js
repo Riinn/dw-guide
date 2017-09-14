@@ -118,7 +118,7 @@ module.exports = function DWGuide(dispatch) {
 			if (event.skill==1171391577) {
 				sendMessage('<font color = "#ff3300">LASER!!!!!!</font>');
 			}
-			//1171391773 First Red Outer-inner explosion
+			//1171391773 First Red Blue-inner explosion
 			//1171391774 First Red Outer-inner explosion
 			//1171391775 Blue Outer-inner explosion
 			//1171391776 Red Inner-outer explosion
