@@ -73,7 +73,7 @@ module.exports = function DWGuide(dispatch) {
 		if (!enabled) return;
 		
 		if (event.huntingZoneId == dw) {
-			if(event.templateId == bandersnatch) {
+			if(event.templateId == bandersnatch || event.templateId == demoros) {
 				boss = event;
 			}
 		}
@@ -87,7 +87,7 @@ module.exports = function DWGuide(dispatch) {
 	
 	dispatch.hook('S_ACTION_STAGE', 1, (event) => {
 		if (!enabled || !boss) return;
-		if (event.source - boss.id == 0) {
+			if (event.source - boss.id == 0 && boss.templateId == bandersnatch) {
 			//systemMessage(''+event.skill);
 			//Bandersnatch actions
 			//pre 50%
@@ -112,5 +112,32 @@ module.exports = function DWGuide(dispatch) {
 				sendMessage('IN IN IN IN');
 			}
 		}
+		if (event.source - boss.id == 0 && boss.templateId == demoros) {
+			//systemMessage(''+event.skill);
+			//1171391577 Laser, 4 times
+			if (event.skill==1171391577) {
+				sendMessage('<font color = "#ff3300">LASER!!!!!!</font>');
+			}
+			//1171391773 First Red Outer-inner explosion
+			//1171391774 First Red Outer-inner explosion
+			//1171391775 Blue Outer-inner explosion
+			//1171391776 Red Inner-outer explosion
+			//1171391777 Blue Inner-outer explosion
+			//1171391778 Red Outer-inner explosion
+			if (event.skill==1171391775 || event.skill==1171391778){
+				sendMessage('IN then OUT');
+			}
+			if (event.skill==1171391776 || event.skill==1171391777){
+				sendMessage('OUT then IN');
+			}
+			//1171391767 Red,Blue,White dice? mech
+			
+			//1171391681 Blue circles, 3 times
+			//1171391687 Red circles, 3 times
+			if (event.skill==1171391687){
+				sendMessage('Double RED');
+			}
+		}
 	});
 }
+
