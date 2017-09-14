@@ -102,8 +102,8 @@ module.exports = function DWGuide(dispatch) {
 			//1171391780:  Red outer explosion
 			//1171391781:  Blue inner explosion
 			//1171391782:  Blue outer explosion
-			//1171391783:  Odd/Red body/Green circles
-			//1171391784:  Even/Blue body/Green circles
+			//1171391783:  Odd/Green circles
+			//1171391784:  Even/Green circles
 			
 			if (event.skill==1171391775 || event.skill==1171391777 || event.skill==1171391779 || event.skill==1171391781) {
 				sendMessage('OUT OUT OUT');
