@@ -166,8 +166,7 @@ module.exports = function DWGuide(dispatch) {
 		}
 		if(event.templateId == 46622){
 			systemMessage('HIT THAT COLOR');
+			orbit = 2;
 		}
 	});
 }
-
-
