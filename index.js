@@ -87,7 +87,7 @@ module.exports = function DWGuide(dispatch) {
 	
 	dispatch.hook('S_ACTION_STAGE', 1, (event) => {
 		if (!enabled || !boss) return;
-		if (event.source - bandersnatch == 0) {
+		if (event.source - boss.id == 0) {
 			//systemMessage(''+event.skill);
 			//Bandersnatch actions
 			//pre 50%
