@@ -171,7 +171,7 @@ module.exports = function DWGuide(dispatch) {
 	});
 	
 	dispatch.hook('S_DESPAWN_NPC', 1, (event) => {
-		if(!enabled || !boss) return;
+		if(!enabled || !boss || !ball) return;
 		if(event.target - ball.id == 0){
 			x = event.x;
 			y = event.y;
