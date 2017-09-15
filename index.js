@@ -174,9 +174,11 @@ module.exports = function DWGuide(dispatch) {
 	
 	dispatch.hook('S_DESPAWN_NPC', 1, (event) => {
 		//demoros can't be killed, it disappears i guess?
-		if(event.target - boss.id == 0){
-			boss = null;
-			orbit = 0;
+		if(boss){
+			if(event.target - boss.id == 0){
+				boss = null;
+				orbit = 0;
+			}
 		}
 	});
 }
