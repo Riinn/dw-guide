@@ -4,12 +4,12 @@ const dw = 466; //Demon's Wheel
 const bandersnatch = 46601; // Bandersnatch
 const demoros = 46602; //Demoros
 
-/*
+
 const dices = {
 	0: {0: 'Hit ALL', 1: 'Don\'t hit RED', 2: 'Hit RED'},	//red dice
 	1: {0: 'Hit ALL', 1: 'Don\'t hit BLUE', 2: 'Hit BLUE'},	//blue dice
 	2: {0: 'Hit ALL', 1: 'Don\'t hit WHITE', 2: 'Hit WHITE'}	//white dice
-};*/
+};
 
 //Planned call outs: Bandersnatch: Stay in or Get out
 //Demoros: LASER
@@ -19,6 +19,10 @@ const dices = {
 module.exports = function DWGuide(dispatch) {
 	
 	let boss = null;
+	let ball = null;
+	let x;
+	let y;
+	let color; //0: red, 1: blue, 2: white
 	let enabled = true;
 	let sendToParty = false;
 	let msg;
@@ -137,7 +141,9 @@ module.exports = function DWGuide(dispatch) {
 				sendMessage('OUT then IN');
 			}
 			//1171391767 Red,Blue,White dice? mech
-			
+			if (event.skill==1171391767){
+				sendMessage(''+dices[orbit][color]);
+			}
 			
 			//1171391681 Blue circles, 3 times
 			//1171391687 Red circles, 3 times
@@ -147,35 +153,39 @@ module.exports = function DWGuide(dispatch) {
 		}
 	});
 	
-	/*
-	dispatch.hook('S_BOSS_BATTLE_INFO', 1, (event) => {
-		if(!enabled || !boss) return;
-		if(event.huntingZoneId != dw || event.templateId != demoros) return;
-		systemMessage('message '+ event.id);
-	});*/
-	
 	dispatch.hook('S_SPAWN_NPC', 3, (event) => {
 		if(!enabled || !boss) return;
-		if(event.huntingZoneId != dw) return;
+		if(event.huntingZoneId != 11796946) return;
 		//46621 clockwise ball
 		//46622 counterclockwise ball
 		if(event.templateId == 46621){
-			sendMessage('DON\'T HIT THAT COLOR');
+			//sendMessage('DON\'T HIT THAT COLOR');
+			ball = event;
 			orbit = 1;
 		}
 		if(event.templateId == 46622){
-			sendMessage('HIT THAT COLOR');
+			//sendMessage('HIT THAT COLOR');
+			ball = event;
 			orbit = 2;
 		}
 	});
 	
 	dispatch.hook('S_DESPAWN_NPC', 1, (event) => {
-		//demoros can't be killed, it disappears i guess?
-		if(boss){
-			if(event.target - boss.id == 0){
-				boss = null;
-				orbit = 0;
-			}
+		if(!enabled || !boss) return;
+		if(event.target - ball.id == 0){
+			x = event.x;
+			y = event.y;
+			//systemMessage('x = '+x+' , y = '+y);
+			if(Math.abs(x+21927.0)<200 && Math.abs(y-43462.6)<200) color = 0;
+			if(Math.abs(x+23881.0)<200 && Math.abs(y-42350.3)<200) color = 0;
+			if(Math.abs(x+22896.0)<200 && Math.abs(y-41786.0)<200) color = 1;
+			if(Math.abs(x+22911.0)<200 && Math.abs(y-44026.0)<200) color = 1;
+			if(Math.abs(x+23847.4)<200 && Math.abs(y-43489.7)<200) color = 2;
+			if(Math.abs(x+21960.7)<200 && Math.abs(y-42323.2)<200) color = 2;
+			//if(color == 0) systemMessage('RED');
+			//if(color == 1) systemMessage('BLUE');
+			//if(color == 2) systemMessage('WHITE');
+			sendMessage(''+dices[color][orbit]);
 		}
 	});
 }
