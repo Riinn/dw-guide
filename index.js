@@ -163,11 +163,11 @@ module.exports = function DWGuide(dispatch) {
 		//46621 clockwise ball
 		//46622 counterclockwise ball
 		if(event.templateId == 46621){
-			systemMessage('DON\'t HIT THAT COLOR');
+			sendMessage('DON\'t HIT THAT COLOR');
 			orbit = 1;
 		}
 		if(event.templateId == 46622){
-			systemMessage('HIT THAT COLOR');
+			sendMessage('HIT THAT COLOR');
 			orbit = 2;
 		}
 	});
