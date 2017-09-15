@@ -1,6 +1,6 @@
 # dw-guide
 
-Working in progress. Expected to finish it in this weekend. I don't have time at the moment.
+Complete
 
 
 ## Bandersnatch's call out message
@@ -20,9 +20,9 @@ Double RED circles
 
 Laser
 
-Ball moving clockwise or counter-clockwise
+Hit or not hit the dice in certain color
 
 
-## TODO:
+## ..
 
-find the packet that says color RED, BLUE or WHITE. It is not in the packet S_DUNGEON_EVENT_MESSAGE tho. I will try find them in S_BOSS_BATTLE_INFO
+I heard report that sometimes laser isn't called. Maybe there are 2 different kind of lasers. I will investigate this issue.
