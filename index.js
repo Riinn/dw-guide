@@ -155,6 +155,8 @@ module.exports = function DWGuide(dispatch) {
 		}
 	});*/
 	
+
+	
 	dispatch.hook('S_SPAWN_NPC', 3, (event) => {
 		if(!enabled || !boss) return;
 		if(boss.templateId != demoros) return;
@@ -167,6 +169,14 @@ module.exports = function DWGuide(dispatch) {
 		if(event.templateId == 46622){
 			systemMessage('HIT THAT COLOR');
 			orbit = 2;
+		}
+	});
+	
+	dispatch.hook('S_DESPAWN_NPC', 1, (event) => {
+		//demoros can't be killed, it disappears i guess?
+		if(event.target - boss.id == 0){
+			boss = null;
+			orbit = 0;
 		}
 	});
 }
