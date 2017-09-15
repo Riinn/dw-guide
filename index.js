@@ -142,7 +142,7 @@ module.exports = function DWGuide(dispatch) {
 			}
 			//1171391767 Red,Blue,White dice? mech
 			if (event.skill==1171391767){
-				sendMessage(''+dices[orbit][color]);
+				sendMessage(''+dices[color][orbit]);
 			}
 			
 			//1171391681 Blue circles, 3 times
