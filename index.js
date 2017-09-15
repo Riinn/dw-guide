@@ -27,6 +27,7 @@ module.exports = function DWGuide(dispatch) {
 	let sendToParty = false;
 	let msg;
 	let orbit=0; //0: STOP, 1:counter-clockwise, 2:clockwise
+	let count=0;
 	
 	//Chat hooks and messages
 	const chatHook = event => {		
@@ -126,7 +127,11 @@ module.exports = function DWGuide(dispatch) {
 			//systemMessage(''+event.skill);
 			//1171391577 Laser, 4 times
 			if (event.skill==1171391577) {
-				sendMessage('<font color = "#ff3300">LASER!!!!!!</font>');
+				if(count == 0){
+					sendMessage('<font color = "#ff3300">LASER!!!!!!</font>');
+				}
+				count+=1;
+				if(count == 4) count = 0;
 			}
 			//1171391773 First Blue Outer-inner explosion
 			//1171391774 First Red Outer-inner explosion
@@ -148,7 +153,11 @@ module.exports = function DWGuide(dispatch) {
 			//1171391681 Blue circles, 3 times
 			//1171391687 Red circles, 3 times
 			if (event.skill==1171391687){
-				sendMessage('Double RED');
+				if(count == 0){
+					sendMessage('Double RED');
+				}
+				count+=1;
+				if(count == 3) count = 0;
 			}
 		}
 	});
