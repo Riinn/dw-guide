@@ -186,6 +186,7 @@ module.exports = function DWGuide(dispatch) {
 			//if(color == 1) systemMessage('BLUE');
 			//if(color == 2) systemMessage('WHITE');
 			sendMessage(''+dices[color][orbit]);
+			ball = null;
 		}
 	});
 }
