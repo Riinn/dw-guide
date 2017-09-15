@@ -159,7 +159,7 @@ module.exports = function DWGuide(dispatch) {
 	
 	dispatch.hook('S_SPAWN_NPC', 3, (event) => {
 		if(!enabled || !boss) return;
-		if(boss.templateId != demoros) return;
+		if(event.huntingZoneId != dw) return;
 		//46621 clockwise ball
 		//46622 counterclockwise ball
 		if(event.templateId == 46621){
