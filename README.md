@@ -25,4 +25,4 @@ Ball moving clockwise or counter-clockwise
 
 ## TODO:
 
-find the packet that says color RED, BLUE or WHITE. It is not in the packet S_DUNGEON_EVENT_MESSAGE tho. I will try find them in S_SYSTEM_MESSAGE
+find the packet that says color RED, BLUE or WHITE. It is not in the packet S_DUNGEON_EVENT_MESSAGE tho. I will try find them in S_BOSS_BATTLE_INFO
