@@ -146,16 +146,13 @@ module.exports = function DWGuide(dispatch) {
 			}
 		}
 	});
-	/*
-	dispatch.hook('S_SYSTEM_MESSAGE', 1, (event) => {
-		if (!enabled || !boss) return;
-		if (boss.templateId == demoros){
-			msg = event.message;
-			systemMessage('Message : '+msg);
-		}
-	});*/
 	
-
+	/*
+	dispatch.hook('S_BOSS_BATTLE_INFO', 1, (event) => {
+		if(!enabled || !boss) return;
+		if(event.huntingZoneId != dw || event.templateId != demoros) return;
+		systemMessage('message '+ event.id);
+	});*/
 	
 	dispatch.hook('S_SPAWN_NPC', 3, (event) => {
 		if(!enabled || !boss) return;
@@ -163,7 +160,7 @@ module.exports = function DWGuide(dispatch) {
 		//46621 clockwise ball
 		//46622 counterclockwise ball
 		if(event.templateId == 46621){
-			sendMessage('DON\'t HIT THAT COLOR');
+			sendMessage('DON\'T HIT THAT COLOR');
 			orbit = 1;
 		}
 		if(event.templateId == 46622){
