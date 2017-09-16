@@ -92,7 +92,6 @@ module.exports = function DWGuide(dispatch) {
 		if(boss) {
 			hp = (event.curHP/event.maxHP);
 			if(hp<=0) boss = null;
-			if(hp<=0.3) orbit = 0;
 		}
 	});
 	
@@ -126,7 +125,7 @@ module.exports = function DWGuide(dispatch) {
 		if (event.source - boss.id == 0 && boss.templateId == demoros) {
 			//systemMessage(''+event.skill);
 			//1171391577 Laser, 4 times
-			if (event.skill==1171391577) {
+			if (event.skill==1171391577 || event.skill==1171392577) {
 				if(count == 0){
 					sendMessage('<font color = "#ff3300">LASER!!!!!!</font>');
 				}
@@ -135,6 +134,10 @@ module.exports = function DWGuide(dispatch) {
 			}
 			//1171391773 First Blue Outer-inner explosion
 			//1171391774 First Red Outer-inner explosion
+			if (event.skill==1171391773 || event.skill==1171391774){
+				orbit = 0;
+			}
+			
 			//1171391775 Blue Outer-inner explosion
 			//1171391776 Red Inner-outer explosion
 			//1171391777 Blue Inner-outer explosion
