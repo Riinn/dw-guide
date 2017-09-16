@@ -21,8 +21,3 @@ Double RED circles
 Laser
 
 Hit or not hit the dice in certain color
-
-
-## ..
-
-I heard report that sometimes laser isn't called. Maybe there are 2 different kind of lasers. I will investigate this issue.
