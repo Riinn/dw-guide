@@ -90,7 +90,7 @@ module.exports = function DWGuide(dispatch) {
 			}
 		}
 		if(boss) {
-			hp = event.curHP/event.maxHP;
+			hp = (event.curHP/event.maxHP);
 			if(hp<=0) boss = null;
 			if(hp<=0.3) orbit = 0;
 		}
