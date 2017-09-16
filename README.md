@@ -21,3 +21,9 @@ Double RED circles
 Laser
 
 Hit or not hit the dice in certain color
+
+## Commands
+
+!dw:  switch this mod on/off (default is on)
+
+!dw.party:  switch party notice on/off (default is off that only you will see messages)
